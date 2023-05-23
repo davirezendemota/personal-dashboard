@@ -1,0 +1,19 @@
+{
+  "name": "personal-dashboard",
+  "workspaces": [
+    "./apps/*"
+  ],
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "concurrently \"npm run dev -w front\" \"npm run dev -w back\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.0.1"
+  },
+  "dependencies": {
+    "react-icons": "^4.8.0"
+  }
+}
