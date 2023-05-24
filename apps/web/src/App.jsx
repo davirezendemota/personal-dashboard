@@ -6,10 +6,22 @@ function App() {
 
   const [projects, setProjects] = useState(db)
 
-  const increase = () => {console.log(projects)}
+  const setScore = (e, id) => {
+    const newScore = e.target.value
 
-  const decrease = () => {}
+    const [project] = projects.filter(project => project.id === id)
 
+    project.score = newScore
+
+    const idx = projects.indexOf(project)
+
+    const arr = projects
+
+    idx >= 0 && arr.splice(idx, 1)
+
+    setProjects([project, arr])
+
+  }
 
   return (
     <div className="w-screen h-screen bg-neutral-900 p-6">
@@ -17,7 +29,7 @@ function App() {
         <span className="text-4xl font-semibold">Projects</span>
         <div className="flex flex-col gap-4 mt-4">
           {
-            projects.map(project => <ProjectItem key={project.id} inc={increase} dec={decrease} data={project}/>)
+            projects.map(project => <ProjectItem key={project.id} setScore={setScore} data={project}/>)
           }
         </div>
       </div>
